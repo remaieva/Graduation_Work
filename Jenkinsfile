@@ -1,7 +1,7 @@
 agent {
 	docker{
 	        image 'maven:3-alpine' 
-            args '-v /home/ec2-user/EPAMGW/testDocker:testDocker
+            args '-v /home/ec2-user/EPAMGW/testDocker:testDocker'
 	}
     stage 'build'
     docker.image('maven:3-alpine').inside {
