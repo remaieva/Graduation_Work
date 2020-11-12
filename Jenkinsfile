@@ -1,8 +1,7 @@
-agent {
-	docker{
-	        image 'maven:3-alpine' 
-            args '-v /home/ec2-user/EPAMGW/testDocker:testDocker'
-	}
+docker{
+    image 'maven:3-alpine' 
+    args '-v /home/ec2-user/EPAMGW/testDocker:testDocker'
+}
     stage 'build'
     docker.image('maven:3-alpine').inside {
         stage 'Git clone'
@@ -10,5 +9,4 @@ agent {
         stage 'Maven build'
         	sh 'cd ./testDocker'
             sh 'mvn clean package -f javahello/pom.xml'
-    }
-}
+  }
