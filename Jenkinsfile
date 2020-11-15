@@ -6,9 +6,10 @@ node {
         stage 'Maven build'
             sh 'mvn clean package -f javahello/pom.xml'
         stage 'Git push'
-            git branch: 'master', credentialsId: '1dc60717-cfbc-41c8-bd75-93986cfb7bb5'
-            sh 'git add .'
-            sh 'git commit -am "Updated version from mvn"'
-            sh 'git push origin master'
+            sshagent(['credentiald-id-using-ssh-key']) {
+                sh 'git add .'
+                sh 'git commit -am "Updated version from mvn"'
+                sh 'git push origin master'
+            }
     }
 }
