@@ -6,6 +6,8 @@ node {
         stage 'Maven build'
             sh 'mvn clean package -f javahello/pom.xml'
         stage 'Git push'
+            sh 'git config --global  user.email "nata.remaieva@gmail.com"'
+            sh 'git config --global  user.name "remaieva"'
             sh 'git add .'
             sh 'git commit -am "Updated version from mvn"'
             sh 'git push origin master'
