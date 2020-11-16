@@ -1,2 +1,2 @@
-terraform\.*
-terraform\variables.tf
+./terraform/.*
+./terraform/variables.tf
